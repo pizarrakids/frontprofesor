@@ -1,0 +1,32 @@
+<div class="" style="padding: 90px; background-image: url('assets/images/pizarra/fondo3.jpeg');">
+  <div class="row">
+    <div class="col-md-4 col-lg-4">
+      <div class="card shadow" style="padding: 40px; opacity: 0.85; background: white; color: black;">
+        <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+          <h3>Iniciar Sesión</h3>
+          <br>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Correo electrónico</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email"
+              ngModel required />
+            <small id="emailHelp" class="form-text text-muted">Nunca comparta su correo con otra persona.</small>
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Contraseña</label>
+            <input type="password" class="form-control" id="exampleInputPassword1" name="password" ngModel required />
+          </div>
+          <hr>
+          <button type="submit" class="btn btn-success btn-block">
+            Iniciar Sesión
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <!--
+    <div class="col-md-8 col-lg-8">
+      <img src="assets/images/pizarra/pizarra-transparente.png" width="100%" />
+    </div>
+    -->
+  </div>
+</div>

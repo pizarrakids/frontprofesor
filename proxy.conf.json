@@ -1,0 +1,11 @@
+{
+    "/codigneiter/index.php/*" : {
+        "target"     : "http://localhost",
+        "secure"    : false,
+        "logLevel"  : "debug",
+        "pathRewrite": {
+            "^/codigneiter/index.php/": ""
+        },
+        "changeOrigin" : true
+    }
+}
