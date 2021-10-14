@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
@@ -16,18 +16,19 @@ export class LoginComponent implements OnInit {
   perfil: any = [];
 
   constructor( private auth: AuthService, 
-               private router: Router ) { 
-                 this.verificaToken();
+               private router: Router, private _route: ActivatedRoute ) { 
+                //  this.verificaToken();
                }
 
   ngOnInit(): void {
+    this.logout();
   }
 
-  verificaToken(){
-    if(localStorage.getItem('token')){
-      this.router.navigateByUrl('/misitio');
-    }
-  }
+  // verificaToken(){
+  //   if(localStorage.getItem('token')){
+  //     this.router.navigateByUrl('/misitio');
+  //   }
+  // }
 
   onSubmit( form: NgForm){
 
@@ -48,14 +49,32 @@ export class LoginComponent implements OnInit {
           alert(this.data.mensaje);
           return;
         }else{        
-          console.log (this.data)
+          //console.log (this.data)
           //this.data = resp.data;
           localStorage.setItem('token', this.data.data.token);
           localStorage.setItem('nickname', this.data.data.nickname);
-          location.reload();
+          this.router.navigate(['misitio']);
         }
       })
 
   }
+
+  logout(){
+    this._route.params.subscribe( params => {
+      let logout = +params['sure'];
+      if(logout == 1){
+        localStorage.removeItem('token');
+        localStorage.removeItem('nickname');
+        
+        this.token = '';
+        this.nickname = '';
+
+        //redireccion
+        //this.router.navigate(['misitio']);
+      }
+    });
+ }
+
+
 
 }

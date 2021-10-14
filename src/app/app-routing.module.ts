@@ -15,7 +15,9 @@ import { CalificarDeberEstudianteComponent } from './components/calificar-deber-
 
 const routes: Routes = [
   //{ path:'home', component: HomeComponent },
+  { path: '', component: LoginComponent },
   { path:'login', component: LoginComponent },
+  { path:'logout/:sure', component: LoginComponent },
   { path:'misitio', component: MisitioComponent },
   { path:'registros', component: RegistrosComponent },
   { path:'registroconf/:id', component: RegistroconfComponent },
@@ -25,7 +27,8 @@ const routes: Routes = [
   { path:'deber/:detalleId/:titulo', component: DeberComponent },
   { path:'calificar-deber/:id', component: CalificarDeberComponent },
   { path:'calificar-deber-estudiante/:id', component: CalificarDeberEstudianteComponent },
-  { path: '**', pathMatch: 'full', redirectTo: '/login'}
+  // { path: '**', pathMatch: 'full', redirectTo: '/login'}
+  { path:'**', component: MisitioComponent }
 ];
 
 @NgModule({

@@ -19,10 +19,16 @@ export class MisitioComponent implements OnInit {
               private auth: AuthService,
               private misSitioService: MisitioService  ) {
 
-      if(this.validaTokenExiste() == null){
-        alert('no esta autenticado');
-       this.router.navigateByUrl('/home');
+      if(!localStorage.getItem('token')){
+        this.router.navigate(['login']);
       }
+
+      this.token = localStorage.getItem('token');
+
+      // if(this.validaTokenExiste() == null){
+      //   alert('no esta autenticado');
+      //  this.router.navigateByUrl('/home');
+      // }
 
       // this.recuperaPerfil();
    }
