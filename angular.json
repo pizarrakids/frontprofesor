@@ -126,5 +126,8 @@
       }
     }
   },
-  "defaultProject": "suitFront"
+  "defaultProject": "suitFront",
+  "cli": {
+    "analytics": false
+  }
 }
